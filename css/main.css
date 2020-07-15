@@ -1128,11 +1128,6 @@ img.img-topic {
   position: fixed;
   top: 0;
 }
-@media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar-inner {
   color: #999;
   padding: 18px 10px;
@@ -1186,7 +1181,7 @@ img.img-topic {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #05b170;
+  background: #160355;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1299,7 +1294,6 @@ img.img-topic {
   .sidebar-toggle {
     left: 20px;
     opacity: 0.8;
-    display: none;
   }
 }
 .sidebar-toggle:hover .toggle-line {
