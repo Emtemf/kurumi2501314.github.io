@@ -1,9 +1,16 @@
 #hexo robots.txt
-User-agent: *
 
 Allow: /
 Allow: /archives/
-
+Allow: /categories/
+Allow: /tags/ 
+Allow: /resources/ 
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
@@ -11,6 +18,6 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://blog.tangxiaozhu.com/search.xml
-Sitemap: http://blog.tangxiaozhu.com/sitemap.xml
-Sitemap: http://blog.tangxiaozhu.com/baidusitemap.xml
+Sitemap: http://xn--4gqn575bn2ufma.top/search.xml
+Sitemap: http://xn--4gqn575bn2ufma.top/sitemap.xml
+Sitemap: http://xn--4gqn575bn2ufma.top/baidusitemap.xml
