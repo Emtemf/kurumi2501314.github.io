@@ -15,6 +15,7 @@
 
 <link rel="stylesheet" href="fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 <style>
@@ -32,7 +33,7 @@
 </style>
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.maolilan.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.maolilan.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="借助百度云接口完成文本情感分析(通用版)，如果没有购买一秒可以处理两条数据，可以用在小项目上，如果是批量，那么建议使用模型或者购买，价钱不详。">
@@ -294,9 +295,9 @@
 
 <h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><h2 id="1注册百度云"><a href="#1注册百度云" class="headerlink" title="1注册百度云"></a>1注册百度云</h2><p>我这里就到控制台了</p>
 <p><a href="https://cloud.baidu.com/?from=console" target="_blank" rel="external nofollow noopener noreferrer">https://cloud.baidu.com/?from=console</a></p>
-<p><img src="https://img-blog.csdnimg.cn/20200629112827986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="2进入控制台创建应用"><a href="#2进入控制台创建应用" class="headerlink" title="2进入控制台创建应用"></a>2进入控制台创建应用</h2><p><a href="https://console.bce.baidu.com/ai/#/ai/nlp/overview/index" target="_blank" rel="external nofollow noopener noreferrer">https://console.bce.baidu.com/ai/#/ai/nlp/overview/index</a><br><strong>1进入nlp相关</strong><br><img src="https://img-blog.csdnimg.cn/20200629113003656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><strong>2创建自己的应用</strong><br><img src="https://img-blog.csdnimg.cn/202006291137425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20200629112827986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="2进入控制台创建应用"><a href="#2进入控制台创建应用" class="headerlink" title="2进入控制台创建应用"></a>2进入控制台创建应用</h2><p><a href="https://console.bce.baidu.com/ai/#/ai/nlp/overview/index" target="_blank" rel="external nofollow noopener noreferrer">https://console.bce.baidu.com/ai/#/ai/nlp/overview/index</a><br><strong>1进入nlp相关</strong><br><img data-src="https://img-blog.csdnimg.cn/20200629113003656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>2创建自己的应用</strong><br><img data-src="https://img-blog.csdnimg.cn/202006291137425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt></p>
 <p><strong>3得到AK和SK</strong></p>
 <p>AK是api key，SK是secret key。</p>
 <p>##3获取Access Token</p>
@@ -563,6 +564,9 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
