@@ -20,6 +20,6 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://xn--4gqn575bn2ufma.top/search.xml
-Sitemap: http://xn--4gqn575bn2ufma.top/sitemap.xml
-Sitemap: http://xn--4gqn575bn2ufma.top/baidusitemap.xml
+Sitemap: https://maolilan.top/search.xml
+Sitemap: https://maolilan.top/sitemap.xml
+Sitemap: https://maolilan.top/baidusitemap.xml
