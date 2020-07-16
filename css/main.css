@@ -1181,7 +1181,7 @@ img.img-topic {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #46741c;
+  background: #1bff71;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
