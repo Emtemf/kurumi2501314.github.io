@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-16 14:13:32 / 修改时间：14:18:03" itemprop="dateCreated datePublished" datetime="2020-07-16T14:13:32+08:00">2020-07-16</time>
+              <time title="创建时间：2020-07-16 14:13:32 / 修改时间：14:36:49" itemprop="dateCreated datePublished" datetime="2020-07-16T14:13:32+08:00">2020-07-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,37 +268,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-
-<p><img src="https://gitee.com/ztfn520/imagebed/raw/master/img/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A2%84%E8%A7%88.png" alt><br>地址：<a href="https://www.maolilan.top/" target="_blank" rel="external nofollow noopener noreferrer">博客地址 </a><br><a href="https://www.maolilan.top/" target="_blank" rel="external nofollow noopener noreferrer">https://www.maolilan.top/</a></p>
-<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><p>这里只讲述hexo+github搭建，至于自定义域名留在下一篇</p>
-<h2 id="1创建github的个人仓库"><a href="#1创建github的个人仓库" class="headerlink" title="1创建github的个人仓库"></a>1创建github的个人仓库</h2><p>仓库名为：用户名.github.io<br>比如我的是kurumi2501314<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy9naXRodWIlRTQlQkIlOTMlRTUlQkElOTMucG5n?x-oss-process=image/format,png" alt></p>
-<h2 id="2安装Git"><a href="#2安装Git" class="headerlink" title="2安装Git"></a>2安装Git</h2><p>这个是为了获得ssh的秘钥<br><strong>1Git下载地址</strong><br><a href="https://git-scm.com/download/win" target="_blank" rel="external nofollow noopener noreferrer">https://git-scm.com/download/win</a><br>可以直接点链接<a href="https://git-scm.com/download/win" target="_blank" rel="external nofollow noopener noreferrer">点这个</a></p>
-<p><strong>2Git和github绑定</strong><br>在任意的文件夹下面右键出现Git Bash<br>就是这个<br><img src="https://img-blog.csdnimg.cn/2020071613320245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后输入下面的信息进行绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的GitHub用户名"</span></span><br><span class="line">git config --global user.email <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
-<p>最后生成ssh秘钥文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的GitHub注册邮箱"</span></span><br></pre></td></tr></table></figure>
-<p>一路回车就ok<br>可以在.ssh文件夹下找到id_rsa.pub密钥<br>推荐用everything检索工具，很小，很方面快速检索，因为用户名不一样这里不再赘述<br><strong>3在github新建SSH Key</strong><br>地址<br><a href="https://github.com/settings/keys" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/settings/keys</a><br>点击<a href="https://github.com/settings/keys" target="_blank" rel="external nofollow noopener noreferrer">点击</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy9zc2gucG5n?x-oss-process=image/format,png" alt><br>将第二步的那个id_rsa.pub打开复制就好啦<br>检测方法：<br>在Git Bash输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git<span class="meta">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200716134246207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这样就是大功告成了，这个是的用处是省去每次输入密码</p>
-<h2 id="3安装Node-js"><a href="#3安装Node-js" class="headerlink" title="3安装Node.js"></a>3安装Node.js</h2><p>检验方法cmd输入</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<p>出现版本号就说明你ok啦。<br>一般会自带npm的，为了稳健再确定npm</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<h2 id="4安装hexo"><a href="#4安装hexo" class="headerlink" title="4安装hexo"></a>4安装hexo</h2><p>终于到主角登场了，首先新建一个文件夹，这个文件夹里放的是hexo框架和之后发布的网页，然后按着shift在点击命令行<br><img src="https://img-blog.csdnimg.cn/2020071613492778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>输入:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>然后初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-<p>这里会新建一个blog文件夹，然后东西都在里面，不加的话可能会报错。<br>验证请在blog文件夹下打开命令行<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy8lRTklQUElOEMlRTglQUYlODEucG5n?x-oss-process=image/format,png" alt><br>然后输入</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> test_my_site</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>hexo new是新建一个博客，文件格式是markdwon的，g是生成，s是启动预览。<br>当然这个时候和开头那个不一样，因为我后面加主题了，这里没有现存图。</p>
-<h2 id="5发布网站"><a href="#5发布网站" class="headerlink" title="5发布网站"></a>5发布网站</h2><p>为了让别人可以看到我们要发布网站，在blog文件夹下_config.yml这个是站点配置文件，而在theme下也有个_config.yml文件，这个是主题配置文件，而我们的操作是在站点配置文件下<br>找到deploy没有请自己添加</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-<p>比如我的就是<a href="https://github.com/kurumi2501314/kurumi2501314.github.io.git" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/kurumi2501314/kurumi2501314.github.io.git</a><br>保存，然后在blog的根目录打开输入<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy8lRTklQUElOEMlRTglQUYlODEucG5n?x-oss-process=image/format,png" alt><br>输入：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>大功告成，现在访问<br>http://你的用户名.github.io<br>就可以了</p>
-<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="external nofollow noopener noreferrer">https://zhuanlan.zhihu.com/p/26625249</a></p>
-
+          <p>借助hexo和github搭建个人博客</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/article/7a56c169.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
