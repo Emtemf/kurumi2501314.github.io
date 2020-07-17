@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/joba.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+   <meta name="google-site-verification" content="n3NA1GxpAyH3h-eF8FSvjPgW_lagKMBHoCObSRMeU-E">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="fonts.useso.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #ff009e; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #ff009e, 0 0 5px #ff009e; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #ff009e;    /*上边框颜色*/
+        border-left-color: #ff009e;    /*左边框颜色*/
+    }
+</style>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.maolilan.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"always","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="借助github的第三方库实现美观侧滑菜单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio引用github第三方库完成美观的侧滑菜单">
+<meta property="og:url" content="https://www.maolilan.top/article/5d6f1d17.html">
+<meta property="og:site_name" content="万取一收斋">
+<meta property="og:description" content="借助github的第三方库实现美观侧滑菜单。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://i1.fuimg.com/723232/cf76124142bccb31.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190405191402852.gif">
+<meta property="article:published_time" content="2020-07-14T16:34:18.000Z">
+<meta property="article:modified_time" content="2020-07-14T19:28:17.582Z">
+<meta property="article:author" content="EMT">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i1.fuimg.com/723232/cf76124142bccb31.gif">
+
+<link rel="canonical" href="https://www.maolilan.top/article/5d6f1d17.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android Studio引用github第三方库完成美观的侧滑菜单 | 万取一收斋</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e5bcdcb749afde0312dc27d02bc9aba5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">万取一收斋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">浅深聚散，万取一收</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">8</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.maolilan.top/article/5d6f1d17.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/wife.png">
+      <meta itemprop="name" content="EMT">
+      <meta itemprop="description" content="文绉绉的一个集博客和其他资源为一体的小站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="万取一收斋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android Studio引用github第三方库完成美观的侧滑菜单
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-15 00:34:18 / 修改时间：03:28:17" itemprop="dateCreated datePublished" datetime="2020-07-15T00:34:18+08:00">2020-07-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+      
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>借助github的第三方库实现美观侧滑菜单。</p>
+<a id="more"></a>
+<p>预览图<br><img data-src="http://i1.fuimg.com/723232/cf76124142bccb31.gif" alt="在这里插入图片描述"></p>
+<p>欢迎下载<br><a href="https://github.com/kurumi2501314/demo/blob/master/demo.apk" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/kurumi2501314/demo/blob/master/demo.apk</a></p>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><p>引用的地址为<br>  <a href="https://github.com/mzule/FantasySlide" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/mzule/FantasySlide</a><br>原文有使用介绍，这里将步骤详</p>
+<h2 id="1添加依赖"><a href="#1添加依赖" class="headerlink" title="1添加依赖"></a>1添加依赖</h2><p>在app下的build.gradle的依赖位置进行添加，因为更新，所以请把  <strong>compile</strong> 改为<br><strong>implementation</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在dependencies的范围里添加</span></span><br><span class="line"> implementation <span class="string">'com.github.mzule.fantasyslide:library:1.0.5'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2进行布局"><a href="#2进行布局" class="headerlink" title="2进行布局"></a>2进行布局</h2><p>如同原博主所言，可以把这个当做抽屉布局就可以了，演示就直接用他的例子了。图片偷懒也使用博主的例子了。侵删。<br>篇幅有限，这里贴关键部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;com.github.mzule.fantasyslide.FantasyDrawerLayout                                        </span><br><span class="line">        xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">        android:id=<span class="string">"@+id/drawerLayout"</span></span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"match_parent"</span>&gt;</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">        &lt;com.github.mzule.fantasyslide.SideBar</span><br><span class="line">            android:id=<span class="string">"@+id/leftSideBar"</span></span><br><span class="line">            android:layout_width=<span class="string">"200dp"</span></span><br><span class="line">            android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">            android:layout_gravity=<span class="string">"start"</span></span><br><span class="line">            android:background=<span class="string">"@color/colorPrimary"</span></span><br><span class="line">            android:gravity=<span class="string">"center_vertical"</span></span><br><span class="line">            app:maxTranslationX=<span class="string">"66dp"</span>&gt;</span><br><span class="line"></span><br><span class="line">            &lt;LinearLayout</span><br><span class="line">                android:id=<span class="string">"@+id/userInfo"</span></span><br><span class="line">                android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">                android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">                android:layout_marginBottom=<span class="string">"30dp"</span></span><br><span class="line">                android:gravity=<span class="string">"center_horizontal"</span></span><br><span class="line">                android:onClick=<span class="string">"onClick"</span></span><br><span class="line">                android:orientation=<span class="string">"vertical"</span>&gt;</span><br><span class="line"></span><br><span class="line">                &lt;com.example.demo.widget.CircleimageView</span><br><span class="line">                    android:layout_width=<span class="string">"110dp"</span></span><br><span class="line">                    android:layout_height=<span class="string">"110dp"</span></span><br><span class="line">                    android:layout_margin=<span class="string">"10dp"</span></span><br><span class="line">                    android:src=<span class="string">"@drawable/me"</span></span><br><span class="line">                    app:civ_border_color=<span class="string">"@color/menu_text_color"</span></span><br><span class="line">                    app:civ_border_width=<span class="string">"2dp"</span> /&gt;</span><br><span class="line"></span><br><span class="line">                &lt;TextView</span><br><span class="line">                    android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">                    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">                    android:text=<span class="string">"昵称"</span></span><br><span class="line">                    android:textColor=<span class="string">"@color/menu_text_color"</span></span><br><span class="line">                    android:textSize=<span class="string">"18sp"</span> /&gt;</span><br><span class="line">            &lt;<span class="regexp">/LinearLayout&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            &lt;TextView</span></span><br><span class="line"><span class="regexp">                style="@style/</span>MenuText1<span class="string">"</span></span><br><span class="line"><span class="string">                android:drawableLeft="</span>@drawable/circle<span class="string">"</span></span><br><span class="line"><span class="string">                android:text="</span>朋友圈<span class="string">" /&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            &lt;TextView</span></span><br><span class="line"><span class="string">                style="</span>@style/MenuText1<span class="string">"</span></span><br><span class="line"><span class="string">                android:drawableLeft="</span>@drawable/wallet<span class="string">"</span></span><br><span class="line"><span class="string">                android:text="</span>钱包<span class="string">" /&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">         </span></span><br><span class="line"><span class="string">        &lt;/com.github.mzule.fantasyslide.SideBar&gt;</span></span><br><span class="line"><span class="string">        &lt;com.github.mzule.fantasyslide.SideBar</span></span><br><span class="line"><span class="string">            android:id="</span>@+id/rightSideBar<span class="string">"</span></span><br><span class="line"><span class="string">            android:layout_width="</span><span class="number">133</span>dp<span class="string">"</span></span><br><span class="line"><span class="string">            android:layout_height="</span>match_parent<span class="string">"</span></span><br><span class="line"><span class="string">            android:layout_gravity="</span>end<span class="string">"</span></span><br><span class="line"><span class="string">            android:background="</span>@drawable/bg_right_bar<span class="string">"</span></span><br><span class="line"><span class="string">            android:gravity="</span>center_vertical|right<span class="string">"</span></span><br><span class="line"><span class="string">            app:maxTranslationX="</span><span class="number">-33</span>dp<span class="string">"&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            &lt;TextView</span></span><br><span class="line"><span class="string">                style="</span>@style/MenuText1<span class="string">"</span></span><br><span class="line"><span class="string">                android:text="</span>星期一<span class="string">" /&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            &lt;TextView</span></span><br><span class="line"><span class="string">                style="</span>@style/MenuText1<span class="string">"</span></span><br><span class="line"><span class="string">                android:text="</span>星期二<span class="string">" /&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            &lt;TextView</span></span><br><span class="line"><span class="string">                style="</span>@style/MenuText1<span class="string">"</span></span><br><span class="line"><span class="string">                android:text="</span>星期三<span class="string">" /&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">           </span></span><br><span class="line"><span class="string">        &lt;/com.github.mzule.fantasyslide.SideBar&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;/com.github.mzule.fantasyslide.FantasyDrawerLayout&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;TextView</span></span><br><span class="line"><span class="string">        android:id="</span>@+id/tipView<span class="string">"</span></span><br><span class="line"><span class="string">        android:layout_width="</span><span class="number">160</span>dp<span class="string">"</span></span><br><span class="line"><span class="string">        android:layout_height="</span>wrap_content<span class="string">"</span></span><br><span class="line"><span class="string">        android:layout_alignParentRight="</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">        android:background="</span>@color/colorPrimary<span class="string">"</span></span><br><span class="line"><span class="string">        android:gravity="</span>center<span class="string">"</span></span><br><span class="line"><span class="string">        android:padding="</span><span class="number">20</span>dp<span class="string">"</span></span><br><span class="line"><span class="string">        android:textColor="</span>@color/colorAccent<span class="string">"</span></span><br><span class="line"><span class="string">        android:textSize="</span><span class="number">16</span>sp<span class="string">"</span></span><br><span class="line"><span class="string">        android:visibility="</span>invisible<span class="string">" /&gt;</span></span><br><span class="line"><span class="string">&lt;/RelativeLayout&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重点是在侧滑菜单的部分，其中 <strong>start</strong> 是说这个是左滑的，右滑是<strong>end</strong>，这个请注意。<br>另外关于头像部分，原博主是调用了一个github上的一个圆形视图库，链接<br><a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/hdodenhof/CircleImageView</a><br>这里是继承后改了些，详情可以去看原博主或者我Git里widget部分。<br>另外drawble后缀是说图片的比例尺寸。</p>
+<h2 id="3设置Listener来监听侧滑菜单"><a href="#3设置Listener来监听侧滑菜单" class="headerlink" title="3设置Listener来监听侧滑菜单"></a>3设置Listener来监听侧滑菜单</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">void</span> setListener() &#123;</span><br><span class="line">    final TextView tipView = (TextView) findViewById(R.id.tipView);</span><br><span class="line">    SideBar leftSideBar = (SideBar) findViewById(R.id.leftSideBar);</span><br><span class="line">    leftSideBar.setFantasyListener(<span class="keyword">new</span> SimpleFantasyListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public boolean onHover(@Nullable View view, int index) &#123;</span><br><span class="line">            tipView.setVisibility(View.VISIBLE);</span><br><span class="line">            <span class="keyword">if</span> (view <span class="keyword">instanceof</span> TextView) &#123;</span><br><span class="line">                tipView.setText(<span class="built_in">String</span>.format(<span class="string">"%s at %d"</span>, ((TextView) view).getText().toString(), index));</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (view != <span class="literal">null</span> &amp;&amp; view.getId() == R.id.userInfo) &#123;</span><br><span class="line">                tipView.setText(<span class="built_in">String</span>.format(<span class="string">"个人中心 at %d"</span>, index));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tipView.setText(<span class="literal">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        @Override</span><br><span class="line">        public boolean onSelect(View view, int index) &#123;</span><br><span class="line">            tipView.setVisibility(View.INVISIBLE);</span><br><span class="line">            Toast.makeText(MainActivity.this, <span class="built_in">String</span>.format(<span class="string">"%d selected"</span>, index), Toast.LENGTH_SHORT).show();</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public <span class="keyword">void</span> onCancel() &#123;</span><br><span class="line">            tipView.setVisibility(View.INVISIBLE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里只是确认是不是点击，因为考虑到还有后续，所以将每个选项的点击后的反应放在第二个activity，这里只用变色就可以了。<br>关于第二个活动：<br>原博主第二个界面是调用了另一个github的库，地址如下<br><a href="https://github.com/ikew0ng/SwipeBackLayout" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/ikew0ng/SwipeBackLayout</a><br>所以总共需要添加三个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation fileTree(dir: <span class="string">'libs'</span>, <span class="attr">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">    implementation <span class="string">'com.android.support:appcompat-v7:28.0.0'</span></span><br><span class="line">    implementation <span class="string">'com.android.support.constraint:constraint-layout:1.1.3'</span></span><br><span class="line">    testImplementation <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    androidTestImplementation <span class="string">'com.android.support.test:runner:1.0.2'</span></span><br><span class="line">    androidTestImplementation <span class="string">'com.android.support.test.espresso:espresso-core:3.0.2'</span></span><br><span class="line">    implementation <span class="string">'com.github.mzule.fantasyslide:library:1.0.5'</span></span><br><span class="line">    implementation <span class="string">'de.hdodenhof:circleimageview:3.0.0'</span></span><br><span class="line">    implementation <span class="string">'me.imid.swipebacklayout.lib:library:1.1.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后可以在这个位置通过对标题的确认来添加事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_seconde);</span><br><span class="line">    swipeBackActivityHelper &#x3D; new SwipeBackActivityHelper(this);</span><br><span class="line">    swipeBackActivityHelper.onActivityCreate();</span><br><span class="line">    getSupportActionBar().setDisplayHomeAsUpEnabled(true);</span><br><span class="line">    setTitle(getIntent().getStringExtra(&quot;title&quot;));</span><br><span class="line">   &#x2F;&#x2F; if(getTitle().equals(&quot;xxx&quot;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  注释的部分就是了，在那里通过比较不同的字符串标题来添加事件。</p>
+<h2 id="4Transformer的改变"><a href="#4Transformer的改变" class="headerlink" title="4Transformer的改变"></a>4Transformer的改变</h2><p>原博主的实例特效是平移的，我这里将其改变为旋转，是在右边将这个特效做了实现。<br>效果如下：</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20190405191402852.gif" alt="在这里插入图片描述"></p>
+<p>详细可以去我github去看完整<br><a href="https://github.com/kurumi2501314/demo" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/kurumi2501314/demo</a><br>欢迎下载<br><a href="https://github.com/kurumi2501314/demo/blob/master/demo.apk" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/kurumi2501314/demo/blob/master/demo.apk</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>谢谢大爷~</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/wechatpay.jpg" alt="EMT 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/alipay.jpg" alt="EMT 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>EMT
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.maolilan.top/article/5d6f1d17.html" title="Android Studio引用github第三方库完成美观的侧滑菜单">https://www.maolilan.top/article/5d6f1d17.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/github/" <i class="fa fa-tag"> github</a>
+              <a href="/tags/Android/" <i class="fa fa-tag"> Android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article/234762cd.html" rel="prev" title="解决百度云情感分析乱码问题">
+      <i class="fa fa-chevron-left"></i> 解决百度云情感分析乱码问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/article/7a56c169.html" rel="next" title="借助hexo和github搭建个人博客">
+      借助hexo和github搭建个人博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现步骤"><span class="nav-number">1.</span> <span class="nav-text">实现步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1添加依赖"><span class="nav-number">1.1.</span> <span class="nav-text">1添加依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2进行布局"><span class="nav-number">1.2.</span> <span class="nav-text">2进行布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3设置Listener来监听侧滑菜单"><span class="nav-number">1.3.</span> <span class="nav-text">3设置Listener来监听侧滑菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4Transformer的改变"><span class="nav-number">1.4.</span> <span class="nav-text">4Transformer的改变</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="EMT" src="/images/wife.png">
+  <p class="site-author-name" itemprop="name">EMT</p>
+  <div class="site-description" itemprop="description">文绉绉的一个集博客和其他资源为一体的小站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kurumi2501314" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kurumi2501314" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1732483487@qq.com" title="E-Mail → mailto:1732483487@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">EMT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">21k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+</div>
+  <div class="powered-by">个人博客 <a href="https://www.maolilan.top/" class="theme-link">EMT</a> 
+  </div>
+<span id="busuanzi_container_site_uv">
+  本站访问次数：<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+</span>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
