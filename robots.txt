@@ -7,6 +7,10 @@ Allow: /categories/
 Allow: /tags/ 
 Allow: /resources/ 
 Allow: /article/
+Allow: /link/
+Allow: /music/
+Allow: /Gallery/
+
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
@@ -23,3 +27,10 @@ Disallow: /fancybox/
 Sitemap: https://www.maolilan.top/search.xml
 Sitemap: https://www.maolilan.top/sitemap.xml
 Sitemap: https://www.maolilan.top/baidusitemap.xml
+
+Sitemap: https://kurumi2501314.github.io/sitemap.xml
+Sitemap: https://kurumi2501314.github.io/baidusitemap.xml
+
+Sitemap: https://420lxt.coding-pages.com/sitemap.xml
+Sitemap: https://420lxt.coding-pages.com/baidusitemap.xml
+
