@@ -11,18 +11,13 @@ Allow: /link/
 Allow: /music/
 Allow: /Gallery/
 
-Disallow: /vendors/
+# 不允许访问的内容
+Disallow: /fonts/
+Disallow: /img/
 Disallow: /js/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
-Disallow: /vendors/
-Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+Disallow: /*.js
+Disallow: /*.css
 
 Sitemap: https://www.maolilan.top/search.xml
 Sitemap: https://www.maolilan.top/sitemap.xml
