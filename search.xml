@@ -343,7 +343,7 @@
       </tags>
   </entry>
   <entry>
-    <title>小浩算法-java题解</title>
+    <title>小浩算法-java题解-数组篇</title>
     <url>/article/683f20fa.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>原文链接<br><a href="https://www.geekxh.com/0.0.%E5%AD%A6%E4%B9%A0%E9%A1%BB%E7%9F%A5/01.html" target="_blank" rel="external nofollow noopener noreferrer">https://www.geekxh.com/0.0.%E5%AD%A6%E4%B9%A0%E9%A1%BB%E7%9F%A5/01.html</a><br>这里是把这个大佬的题解用java写一下做个记录</p>
 <h1 id="数组系列"><a href="#数组系列" class="headerlink" title="数组系列"></a>数组系列</h1><h2 id="两个数组的交集-350"><a href="#两个数组的交集-350" class="headerlink" title="两个数组的交集(350)"></a>两个数组的交集(350)</h2><p>给定两个数组，编写一个函数来计算它们的交集。</p>
