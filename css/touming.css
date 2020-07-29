@@ -1,19 +1,9 @@
-/* #footer {
-    background: transparent;
-    /* color: black; */
-} */
-/* @font-face {
-    font-family: 'sleek';
-    src: url('https://cdn.jsdelivr.net/gh/lete114/CDN2/zaxiang/sleek.woff2');
-} */
-
 
 /*Lete个人博客颜色修改*/
 
 #page-header #site_title {
     color: #80bdab;
 }
-
 
 /*页脚a标签字体颜色*/
 
@@ -71,9 +61,9 @@ a {
 
 /* 鼠标图标 */
 
-body {
+/* body {
     cursor: url(https://cdn.jsdelivr.net/gh/lete114/CDN@1.0/Use/Jkll8I.png), auto;
-}
+} */
 
 
 /*a标签*/
