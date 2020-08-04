@@ -26,6 +26,6 @@ Sitemap: https://www.maolilan.top/baidusitemap.xml
 Sitemap: https://kurumi2501314.github.io/sitemap.xml
 Sitemap: https://kurumi2501314.github.io/baidusitemap.xml
 
-Sitemap: https://420lxt.coding-pages.com/sitemap.xml
-Sitemap: https://420lxt.coding-pages.com/baidusitemap.xml
+Sitemap: https://60531f.coding-pages.com/sitemap.xml
+Sitemap: https://60531f.coding-pages.com/baidusitemap.xml
 
