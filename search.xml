@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo在coding和github的双线部署</title>
+    <url>/article/541a8071.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>hexo在coding和github的双线部署</p>
+<a id="more"></a>
+<p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A2%84%E8%A7%88.png" alt><br>地址：<a href="https://www.maolilan.top/">博客地址 </a><br>欢迎来看看<br><a href="https://www.maolilan.top/">https://www.maolilan.top/</a></p>
+<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><p>github访问还是太慢了，而coding因为在国内所以很快，那么就让国外访问github而国内访问coding，上篇已经讲了github的<br><a href="https://blog.csdn.net/qq_41318400/article/details/107381793" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_41318400/article/details/107381793</a></p>
+<h2 id="1创建Coding的个人仓库"><a href="#1创建Coding的个人仓库" class="headerlink" title="1创建Coding的个人仓库"></a>1创建Coding的个人仓库</h2><p>仓库名为：最好是用户名，因为艾米莉亚碳我选择了EMT<br><img src= "/img/loading.gif" data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy9jb25kaW5nLnBuZw?x-oss-process=image/format,png" alt><br>选择第三个，紫色的然后勾选启动readme.md初始化<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144212271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="2SSH公钥配置"><a href="#2SSH公钥配置" class="headerlink" title="2SSH公钥配置"></a>2SSH公钥配置</h2><p>进入个人中心<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144329214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144338124.png" alt="在这里插入图片描述"><br>这里是上篇博客提到的在.ssh文件夹下的，同理</p>
+<h2 id="3开启Coding-Pages服务"><a href="#3开启Coding-Pages服务" class="headerlink" title="3开启Coding Pages服务"></a>3开启Coding Pages服务</h2><p><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144613210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>位置如图，这里要实名认证才可以使用，挺快的，这里有三个是因为我自定义域名了，正常来说是一个第三个那个</p>
+<h2 id="4站点配置文件修改"><a href="#4站点配置文件修改" class="headerlink" title="4站点配置文件修改"></a>4站点配置文件修改</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repository:</span><br><span class="line">      github: https:<span class="comment">//github.com/......io.git,master</span></span><br><span class="line">      coding: https:<span class="comment">//e.coding.net/......git,master</span></span><br></pre></td></tr></table></figure>
+<p>这里请把地址改成你自己的</p>
+<h2 id="5自定义域名Coding"><a href="#5自定义域名Coding" class="headerlink" title="5自定义域名Coding"></a>5自定义域名Coding</h2><p>跟着要求就好<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716145851817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>跟着提示去相应的控制台就好。</p>
+<h2 id="5自定义域名github"><a href="#5自定义域名github" class="headerlink" title="5自定义域名github"></a>5自定义域名github</h2><p>添加解析，以阿里云为例<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150723195.png" alt="在这里插入图片描述"><br>然后去<br>在GitHub Pages的<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150606218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个要等阿里云通知你解析完成才可以，一般挺快的。<br>测试：<br><a href="http://ping.chinaz.com/" target="_blank" rel="external nofollow noopener noreferrer">http://ping.chinaz.com/</a><br>可以去检查自己的<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150019250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150102206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>搭建个人博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github</tag>
+        <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>借助hexo和github搭建个人博客</title>
     <url>/article/7a56c169.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>借助hexo和github搭建个人博客</p>
@@ -41,30 +65,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo在coding和github的双线部署</title>
-    <url>/article/541a8071.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>hexo在coding和github的双线部署</p>
-<a id="more"></a>
-<p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A2%84%E8%A7%88.png" alt><br>地址：<a href="https://www.maolilan.top/">博客地址 </a><br>欢迎来看看<br><a href="https://www.maolilan.top/">https://www.maolilan.top/</a></p>
-<h1 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h1><p>github访问还是太慢了，而coding因为在国内所以很快，那么就让国外访问github而国内访问coding，上篇已经讲了github的<br><a href="https://blog.csdn.net/qq_41318400/article/details/107381793" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/qq_41318400/article/details/107381793</a></p>
-<h2 id="1创建Coding的个人仓库"><a href="#1创建Coding的个人仓库" class="headerlink" title="1创建Coding的个人仓库"></a>1创建Coding的个人仓库</h2><p>仓库名为：最好是用户名，因为艾米莉亚碳我选择了EMT<br><img src= "/img/loading.gif" data-src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9naXRlZS5jb20venRmbjUyMC9pbWFnZWJlZC9yYXcvbWFzdGVyL2ltZy9jb25kaW5nLnBuZw?x-oss-process=image/format,png" alt><br>选择第三个，紫色的然后勾选启动readme.md初始化<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144212271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="2SSH公钥配置"><a href="#2SSH公钥配置" class="headerlink" title="2SSH公钥配置"></a>2SSH公钥配置</h2><p>进入个人中心<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144329214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144338124.png" alt="在这里插入图片描述"><br>这里是上篇博客提到的在.ssh文件夹下的，同理</p>
-<h2 id="3开启Coding-Pages服务"><a href="#3开启Coding-Pages服务" class="headerlink" title="3开启Coding Pages服务"></a>3开启Coding Pages服务</h2><p><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716144613210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>位置如图，这里要实名认证才可以使用，挺快的，这里有三个是因为我自定义域名了，正常来说是一个第三个那个</p>
-<h2 id="4站点配置文件修改"><a href="#4站点配置文件修改" class="headerlink" title="4站点配置文件修改"></a>4站点配置文件修改</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repository:</span><br><span class="line">      github: https:<span class="comment">//github.com/......io.git,master</span></span><br><span class="line">      coding: https:<span class="comment">//e.coding.net/......git,master</span></span><br></pre></td></tr></table></figure>
-<p>这里请把地址改成你自己的</p>
-<h2 id="5自定义域名Coding"><a href="#5自定义域名Coding" class="headerlink" title="5自定义域名Coding"></a>5自定义域名Coding</h2><p>跟着要求就好<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716145851817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>跟着提示去相应的控制台就好。</p>
-<h2 id="5自定义域名github"><a href="#5自定义域名github" class="headerlink" title="5自定义域名github"></a>5自定义域名github</h2><p>添加解析，以阿里云为例<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150723195.png" alt="在这里插入图片描述"><br>然后去<br>在GitHub Pages的<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150606218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这个要等阿里云通知你解析完成才可以，一般挺快的。<br>测试：<br><a href="http://ping.chinaz.com/" target="_blank" rel="external nofollow noopener noreferrer">http://ping.chinaz.com/</a><br>可以去检查自己的<br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150019250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20200716150102206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxMzE4NDAw,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>搭建个人博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>github</tag>
-        <tag>coding</tag>
       </tags>
   </entry>
   <entry>
@@ -202,6 +202,30 @@
       </tags>
   </entry>
   <entry>
+    <title>电脑软件推荐</title>
+    <url>/article/e419ec53.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>目前自己用的好软推荐，不提供破解版，只提供官网。</p>
+<h1 id="下载类"><a href="#下载类" class="headerlink" title="下载类"></a>下载类</h1><h2 id="IDM"><a href="#IDM" class="headerlink" title="IDM"></a>IDM</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234004.png" alt><br>及其好用，可以多线程下载视频，文件。对于b站大部分视频可以下载，YouTube也是。网盘没黑号可以加速下载。正式版不免费</p>
+<p>官网： <a href="http://www.internetdownloadmanager.com/" target="_blank" rel="external nofollow noopener noreferrer">http://www.internetdownloadmanager.com/</a></p>
+<h2 id="Xdown"><a href="#Xdown" class="headerlink" title="Xdown"></a>Xdown</h2><p>类似上面。更推荐IDM<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234025.png" alt><br>官网：<a href="https://xdown.org/" target="_blank" rel="external nofollow noopener noreferrer">https://xdown.org/</a></p>
+<h2 id="Free-Download-Manager"><a href="#Free-Download-Manager" class="headerlink" title="Free Download Manager"></a>Free Download Manager</h2><p>bt类文件比较好，如果能用IDM建议优先IDM。免费。<br>官网： <a href="https://www.freedownloadmanager.org/zh/" target="_blank" rel="external nofollow noopener noreferrer">https://www.freedownloadmanager.org/zh/</a></p>
+<h1 id="搜索类"><a href="#搜索类" class="headerlink" title="搜索类"></a>搜索类</h1><h2 id="Everyting"><a href="#Everyting" class="headerlink" title="Everyting"></a>Everyting</h2><p>和listary类似，个人喜欢这个。免费。<br>官网： <a href="https://www.voidtools.com/zh-cn/" target="_blank" rel="external nofollow noopener noreferrer">https://www.voidtools.com/zh-cn/</a></p>
+<h1 id="录屏类"><a href="#录屏类" class="headerlink" title="录屏类"></a>录屏类</h1><h2 id="EV录屏"><a href="#EV录屏" class="headerlink" title="EV录屏"></a>EV录屏</h2><p>免费录屏软件。<br><a href="https://www.ieway.cn/" target="_blank" rel="external nofollow noopener noreferrer">https://www.ieway.cn/</a></p>
+<h2 id="ScreenToGif"><a href="#ScreenToGif" class="headerlink" title="ScreenToGif"></a>ScreenToGif</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233319.png" alt><br>也是免费的，这个可以选择输出格式，不过没声音，可能是我使用方法不对，可以把录屏转成gif。</p>
+<p>官网： <a href="https://www.screentogif.com/" target="_blank" rel="external nofollow noopener noreferrer">https://www.screentogif.com/</a></p>
+<h1 id="视频播放类"><a href="#视频播放类" class="headerlink" title="视频播放类"></a>视频播放类</h1><h2 id="PotPlayer"><a href="#PotPlayer" class="headerlink" title="PotPlayer"></a>PotPlayer</h2><p>解码很快，有4k片源用这个看很舒服。<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233650.png" alt></p>
+<p>官网： <a href="https://potplayer.org/" target="_blank" rel="external nofollow noopener noreferrer">https://potplayer.org/</a></p>
+<h1 id="解压缩类"><a href="#解压缩类" class="headerlink" title="解压缩类"></a>解压缩类</h1><h2 id="Bandizip"><a href="#Bandizip" class="headerlink" title="Bandizip"></a>Bandizip</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233906.png" alt><br>强大的解压缩软件，基本都可以解压缩，也不收费。<br>建议下载6.25版本，没广告，后续版本有广告。<br>官网： <a href="http://www.bandisoft.com/" target="_blank" rel="external nofollow noopener noreferrer">http://www.bandisoft.com/</a></p>
+<h1 id="桌面管理类"><a href="#桌面管理类" class="headerlink" title="桌面管理类"></a>桌面管理类</h1><h2 id="Fences"><a href="#Fences" class="headerlink" title="Fences"></a>Fences</h2><p>效果：<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234301.png" alt><br>双击后隐藏桌面图标，比较方便归纳。<br>官网： <a href="https://www.stardock.com/products/fences/" target="_blank" rel="external nofollow noopener noreferrer">https://www.stardock.com/products/fences/</a></p>
+]]></content>
+      <categories>
+        <category>电脑软件推荐</category>
+      </categories>
+      <tags>
+        <tag>电脑软件推荐</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>借助百度云接口完成文本情感分析(通用版)</title>
     <url>/article/2b97b46c.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>借助百度云接口完成文本情感分析(通用版)，如果没有购买一秒可以处理两条数据，可以用在小项目上，如果是批量，那么建议使用模型或者购买，价钱不详。</p>
@@ -243,45 +267,6 @@
       </tags>
   </entry>
   <entry>
-    <title>百度云api调用时出现“Max retries exceeded with url”的解决</title>
-    <url>/article/358ad26.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>这个是因为qps限制问题我们需要加sleep，例子：</p>
-<a id="more"></a>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(<span class="number">0</span>,len(df)</span>):</span></span><br><span class="line"><span class="function">       <span class="title">print</span><span class="params">(i)</span></span></span><br><span class="line"><span class="function">       time.<span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span> #这里</span></span><br><span class="line"><span class="function">       inputText</span>=df.at[i,<span class="string">"微博正文"</span>]</span><br><span class="line">       print(inputText)</span><br><span class="line">       <span class="keyword">if</span>(len(inputText)&lt;<span class="number">2048</span>):</span><br><span class="line">           accessToken = getToken()</span><br><span class="line">           everyday_list.append(last_getProEmotion(inputText,accessToken))</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           data = cut_text(inputText, 1500)  # 如果文章字节长度大于1500，则切分</span><br><span class="line">           accessToken = getToken()</span><br><span class="line">           everyday_list.append(last_getProEmotion(data , accessToken))</span><br><span class="line"> print(everyday_list)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>百度云</category>
-      </categories>
-      <tags>
-        <tag>百度云接口</tag>
-        <tag>情感分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电脑软件推荐</title>
-    <url>/article/e419ec53.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>目前自己用的好软推荐，不提供破解版，只提供官网。</p>
-<h1 id="下载类"><a href="#下载类" class="headerlink" title="下载类"></a>下载类</h1><h2 id="IDM"><a href="#IDM" class="headerlink" title="IDM"></a>IDM</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234004.png" alt><br>及其好用，可以多线程下载视频，文件。对于b站大部分视频可以下载，YouTube也是。网盘没黑号可以加速下载。正式版不免费</p>
-<p>官网： <a href="http://www.internetdownloadmanager.com/" target="_blank" rel="external nofollow noopener noreferrer">http://www.internetdownloadmanager.com/</a></p>
-<h2 id="Xdown"><a href="#Xdown" class="headerlink" title="Xdown"></a>Xdown</h2><p>类似上面。更推荐IDM<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234025.png" alt><br>官网：<a href="https://xdown.org/" target="_blank" rel="external nofollow noopener noreferrer">https://xdown.org/</a></p>
-<h2 id="Free-Download-Manager"><a href="#Free-Download-Manager" class="headerlink" title="Free Download Manager"></a>Free Download Manager</h2><p>bt类文件比较好，如果能用IDM建议优先IDM。免费。<br>官网： <a href="https://www.freedownloadmanager.org/zh/" target="_blank" rel="external nofollow noopener noreferrer">https://www.freedownloadmanager.org/zh/</a></p>
-<h1 id="搜索类"><a href="#搜索类" class="headerlink" title="搜索类"></a>搜索类</h1><h2 id="Everyting"><a href="#Everyting" class="headerlink" title="Everyting"></a>Everyting</h2><p>和listary类似，个人喜欢这个。免费。<br>官网： <a href="https://www.voidtools.com/zh-cn/" target="_blank" rel="external nofollow noopener noreferrer">https://www.voidtools.com/zh-cn/</a></p>
-<h1 id="录屏类"><a href="#录屏类" class="headerlink" title="录屏类"></a>录屏类</h1><h2 id="EV录屏"><a href="#EV录屏" class="headerlink" title="EV录屏"></a>EV录屏</h2><p>免费录屏软件。<br><a href="https://www.ieway.cn/" target="_blank" rel="external nofollow noopener noreferrer">https://www.ieway.cn/</a></p>
-<h2 id="ScreenToGif"><a href="#ScreenToGif" class="headerlink" title="ScreenToGif"></a>ScreenToGif</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233319.png" alt><br>也是免费的，这个可以选择输出格式，不过没声音，可能是我使用方法不对，可以把录屏转成gif。</p>
-<p>官网： <a href="https://www.screentogif.com/" target="_blank" rel="external nofollow noopener noreferrer">https://www.screentogif.com/</a></p>
-<h1 id="视频播放类"><a href="#视频播放类" class="headerlink" title="视频播放类"></a>视频播放类</h1><h2 id="PotPlayer"><a href="#PotPlayer" class="headerlink" title="PotPlayer"></a>PotPlayer</h2><p>解码很快，有4k片源用这个看很舒服。<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233650.png" alt></p>
-<p>官网： <a href="https://potplayer.org/" target="_blank" rel="external nofollow noopener noreferrer">https://potplayer.org/</a></p>
-<h1 id="解压缩类"><a href="#解压缩类" class="headerlink" title="解压缩类"></a>解压缩类</h1><h2 id="Bandizip"><a href="#Bandizip" class="headerlink" title="Bandizip"></a>Bandizip</h2><p><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803233906.png" alt><br>强大的解压缩软件，基本都可以解压缩，也不收费。<br>建议下载6.25版本，没广告，后续版本有广告。<br>官网： <a href="http://www.bandisoft.com/" target="_blank" rel="external nofollow noopener noreferrer">http://www.bandisoft.com/</a></p>
-<h1 id="桌面管理类"><a href="#桌面管理类" class="headerlink" title="桌面管理类"></a>桌面管理类</h1><h2 id="Fences"><a href="#Fences" class="headerlink" title="Fences"></a>Fences</h2><p>效果：<br><img src= "/img/loading.gif" data-src="https://gitee.com/ztfn520/imagebed/raw/master/img/20200803234301.png" alt><br>双击后隐藏桌面图标，比较方便归纳。<br>官网： <a href="https://www.stardock.com/products/fences/" target="_blank" rel="external nofollow noopener noreferrer">https://www.stardock.com/products/fences/</a></p>
-]]></content>
-      <categories>
-        <category>电脑软件推荐</category>
-      </categories>
-      <tags>
-        <tag>电脑软件推荐</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>百度云情感分析定制版</title>
     <url>/article/c386a086.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>借助百度云接口完成文本情感分析(通用版)，如果没有购买一秒可以处理两条数据，可以用在小项目上，如果是批量，那么建议使用模型或者购买，价钱不详。</p>
@@ -305,6 +290,21 @@
 
 
 ]]></content>
+      <categories>
+        <category>百度云</category>
+      </categories>
+      <tags>
+        <tag>百度云接口</tag>
+        <tag>情感分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>百度云api调用时出现“Max retries exceeded with url”的解决</title>
+    <url>/article/358ad26.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\css\APlayer.min.css"><script src="\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\js\Meting.min.js"></script><p>这个是因为qps限制问题我们需要加sleep，例子：</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">for</span> i in <span class="title">range</span><span class="params">(<span class="number">0</span>,len(df)</span>):</span></span><br><span class="line"><span class="function">       <span class="title">print</span><span class="params">(i)</span></span></span><br><span class="line"><span class="function">       time.<span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span> #这里</span></span><br><span class="line"><span class="function">       inputText</span>=df.at[i,<span class="string">"微博正文"</span>]</span><br><span class="line">       print(inputText)</span><br><span class="line">       <span class="keyword">if</span>(len(inputText)&lt;<span class="number">2048</span>):</span><br><span class="line">           accessToken = getToken()</span><br><span class="line">           everyday_list.append(last_getProEmotion(inputText,accessToken))</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           data = cut_text(inputText, 1500)  # 如果文章字节长度大于1500，则切分</span><br><span class="line">           accessToken = getToken()</span><br><span class="line">           everyday_list.append(last_getProEmotion(data , accessToken))</span><br><span class="line"> print(everyday_list)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>百度云</category>
       </categories>
