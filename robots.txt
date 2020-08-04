@@ -1,15 +1,7 @@
 #hexo robots.txt
 User-agent: *
 
-Allow: /
-Allow: /archives/
-Allow: /categories/
-Allow: /tags/ 
-Allow: /resources/ 
-Allow: /article/
-Allow: /link/
-Allow: /music/
-Allow: /Gallery/
+
 
 # 不允许访问的内容
 Disallow: /fonts/
