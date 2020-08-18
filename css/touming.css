@@ -1,3 +1,5 @@
+/* 隐藏回到顶部按钮，替换为up酱 */
+
 #go-up i {
     display: none;
     background-color: transparent !important;
@@ -10,10 +12,17 @@
 #upj {
     transform: translate(-70px, -80px) !important;
 }
+
 /* 目录隐藏按钮颜色 */
 
 #toggle-sidebar {
     color: #e58a8a !important;
+}
+
+/* 版权链接去掉下划线 */
+
+.layout_post .post-copyright .post-copyright-info a {
+    text-decoration: none;
 }
 /* 评论框  */
 
@@ -71,6 +80,17 @@
 #footer {
     background: transparent !important;
 }
+
+
+/*页脚a标签字体颜色*/
+#footer-wrap a {
+    color: #00c4b6;
+}
+/*页脚自定义字段字体颜色*/
+/* 也就是配置文件里的footer_custom_text */
+.footer_custom_text {
+    color: #00c4b6;
+}
 /*移动端优化：去除归档、标签、最新文章、公告、、只保留网站统计*/
 
 @media screen and (max-width: 800px) {
@@ -80,10 +100,6 @@
     }
 }
 
-/* 分页器的三个点(...) */
-.space {
-    color: #00c4b6;
-}
 /* 滚动条 */
 
 ::-webkit-scrollbar {
